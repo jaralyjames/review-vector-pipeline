@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "review-vector-pipeline"
+version = "0.1.0"
+description = "Chunk cleaned CSV reviews, embed them, and persist them in ChromaDB"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "chromadb>=1.0,<2.0",
+  "sentence-transformers>=3.0,<6.0",
+]
+
+[project.scripts]
+review-ingest = "review_vector_pipeline.cli:main"
+review-query = "review_vector_pipeline.query_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+

@@ -1,0 +1,3 @@
+[console_scripts]
+review-ingest = review_vector_pipeline.cli:main
+review-query = review_vector_pipeline.query_cli:main

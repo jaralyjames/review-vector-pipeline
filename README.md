@@ -1,0 +1,123 @@
+# Review Vector Pipeline
+
+Loads cleaned reviews from CSV, splits long reviews into overlapping token chunks,
+creates local embeddings with Sentence Transformers, and stores them in a
+persistent ChromaDB collection.
+
+## Project structure
+
+```text
+review-vector-pipeline/
+├── data/
+│   └── cleaned_reviews.sample.csv
+├── src/review_vector_pipeline/
+│   ├── __init__.py
+│   ├── cli.py
+│   ├── config.py
+│   └── ingest.py
+├── tests/
+│   └── test_ingest.py
+├── .gitignore
+├── pyproject.toml
+└── requirements.txt
+```
+
+## Setup (Windows PowerShell)
+
+```powershell
+cd review-vector-pipeline
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+macOS/Linux activation: `source .venv/bin/activate`.
+
+The first run downloads the embedding model. Later runs use the local cache.
+
+## CSV format
+
+The CSV must contain a text column. By default the program checks, in order:
+`clean_text`, `text`, `review_text`, `review`, and `content`. Override this with
+`--text-column`. If a `metadata_json` column exists, its JSON object is unpacked
+into filterable Chroma metadata fields.
+
+All other columns are stored as Chroma metadata when they have a usable scalar
+value. A stable `review_id` column is recommended. If it is absent, a content
+hash is used.
+
+## Ingest reviews
+
+```powershell
+review-ingest data/cleaned_reviews.sample.csv
+```
+
+For the included full dataset:
+
+```powershell
+review-ingest data/clean_reviews.csv --collection cleaned_reviews
+```
+
+Example with explicit options:
+
+```powershell
+review-ingest data/cleaned_reviews.csv `
+  --text-column review_text `
+  --id-column review_id `
+  --collection reviews `
+  --persist-directory chroma_db `
+  --chunk-size 256 `
+  --chunk-overlap 40 `
+  --batch-size 64
+```
+
+You can also run it without the installed command:
+
+```powershell
+python -m review_vector_pipeline.cli data/cleaned_reviews.csv
+```
+
+Useful options:
+
+- `--model`: Sentence Transformers model name (default: `all-MiniLM-L6-v2`)
+- `--device`: `cpu`, `cuda`, or `mps`
+- `--reset`: delete and recreate the selected collection before ingestion
+- `--limit`: ingest only the first N valid reviews for a quick test
+
+The CLI prints a JSON summary containing review, chunk, skipped-row, and
+collection counts.
+
+## Verify with a similarity search
+
+```python
+import chromadb
+from sentence_transformers import SentenceTransformer
+
+client = chromadb.PersistentClient(path="chroma_db")
+collection = client.get_collection("reviews")
+model = SentenceTransformer("all-MiniLM-L6-v2")
+
+query = "Users complain about ads interrupting music"
+embedding = model.encode([query], normalize_embeddings=True).tolist()
+results = collection.query(query_embeddings=embedding, n_results=5)
+
+for document, metadata, distance in zip(
+    results["documents"][0], results["metadatas"][0], results["distances"][0]
+):
+    print(distance, metadata.get("review_id"), document)
+```
+
+## Run tests
+
+```powershell
+pip install pytest
+pytest
+```
+
+## Notes
+
+- Chunk IDs are deterministic hashes, and ingestion uses `upsert`.
+- Empty or whitespace-only text rows are skipped.
+- Embeddings are normalized, making Chroma's cosine distance appropriate.
+- Keep `chroma_db/` out of Git; it can be rebuilt from the source CSV.
