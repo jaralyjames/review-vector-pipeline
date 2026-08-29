@@ -4,8 +4,12 @@ Version: 0.1.0
 Summary: Chunk cleaned CSV reviews, embed them, and persist them in ChromaDB
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
-Requires-Dist: chromadb<2.0,>=1.0
-Requires-Dist: sentence-transformers<6.0,>=3.0
+Requires-Dist: fastapi<1.0,>=0.115
+Requires-Dist: uvicorn[standard]<1.0,>=0.34
+Requires-Dist: python-dotenv<2.0,>=1.0
+Requires-Dist: chromadb
+Requires-Dist: sentence-transformers
+Requires-Dist: groq
 
 # Review Vector Pipeline
 
