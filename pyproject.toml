@@ -9,8 +9,12 @@ description = "Chunk cleaned CSV reviews, embed them, and persist them in Chroma
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-  "chromadb>=1.0,<2.0",
-  "sentence-transformers>=3.0,<6.0",
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.34,<1.0",
+    "python-dotenv>=1.0,<2.0",
+    "chromadb",
+    "sentence-transformers",
+    "groq",
 ]
 
 [project.scripts]
