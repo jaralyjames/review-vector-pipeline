@@ -31,10 +31,10 @@ FRONTEND_ORIGINS = [
 app = FastAPI(title="Myntra Review Analyser API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=FRONTEND_ORIGINS,
+    allow_origins=["*"],
     allow_credentials=False,
-    allow_methods=["GET", "POST"],
-    allow_headers=["Content-Type"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
