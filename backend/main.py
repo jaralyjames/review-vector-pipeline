@@ -23,7 +23,7 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 FRONTEND_ORIGINS = [
     origin.strip()
     for origin in os.getenv(
-        "FRONTEND_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000",
+        "FRONTEND_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000,https://myntra-review-analyser.vercel.app "
     ).split(",")
     if origin.strip()
 ]
@@ -31,10 +31,10 @@ FRONTEND_ORIGINS = [
 app = FastAPI(title="Myntra Review Analyser API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=FRONTEND_ORIGINS,
     allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
 )
 
 
