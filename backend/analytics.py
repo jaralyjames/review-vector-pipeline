@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+import json
 from pathlib import Path
 
 
@@ -43,3 +44,22 @@ def source_statistics(
 
     unique_review_ids = set().union(*review_ids_by_source.values()) if review_ids_by_source else set()
     return {"total_reviews": len(unique_review_ids), "sources": sources}
+
+
+def review_analysis(report_path: Path) -> dict[str, object]:
+    """Load the report produced by analyze_review_categories.py."""
+    if not report_path.is_file():
+        raise FileNotFoundError(
+            f"Analysis report not found: {report_path}. "
+            "Run analyze_review_categories.py first."
+        )
+    try:
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"Analysis report is invalid: {report_path}") from exc
+
+    if not isinstance(report.get("categories"), list):
+        raise ValueError("Analysis report does not contain category results.")
+    if not isinstance(report.get("wishlist_opportunities"), list):
+        raise ValueError("Analysis report does not contain wishlist opportunities.")
+    return report

@@ -1,0 +1,125 @@
+.questionsSection {
+  padding-top: 70px;
+}
+
+.answeredList {
+  display: grid;
+  gap: 14px;
+}
+
+.answeredCard {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(40, 44, 63, 0.05);
+}
+
+.questionIndex {
+  display: grid;
+  place-items: start center;
+  background: var(--navy);
+  color: #fff;
+  padding-top: 24px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.answeredBody {
+  padding: 22px 25px;
+}
+
+.answeredHeading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.answeredHeading h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.questionAnswer {
+  margin: 13px 0 0;
+  color: #555967;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.questionEvidence {
+  margin-top: 17px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.questionEvidence summary {
+  width: max-content;
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.questionSamples {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.questionSamples blockquote {
+  margin: 0;
+  border-left: 3px solid var(--pink);
+  background: #fff6f8;
+  padding: 15px;
+}
+
+.questionSamples blockquote div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--pink);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.questionSamples blockquote p {
+  margin: 9px 0 0;
+  color: #555967;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.answeredSkeleton {
+  height: 180px;
+}
+
+@media (max-width: 760px) {
+  .questionSamples {
+    grid-template-columns: 1fr;
+  }
+
+  .answeredCard {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .answeredBody {
+    padding: 18px 16px;
+  }
+
+  .questionIndex {
+    padding-top: 20px;
+  }
+
+  .answeredHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from .retrieval import retrieve_and_answer
@@ -12,7 +13,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--persist-directory", type=Path, default=Path("chroma_db"))
     parser.add_argument("--collection", default="cleaned_reviews", dest="collection_name")
     parser.add_argument("--embedding-model", default="sentence-transformers/all-MiniLM-L6-v2")
-    parser.add_argument("--llm-model",default="openai/gpt-oss-20b")
+    parser.add_argument("--llm-model", default="llama-3.3-70b-versatile")
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--device", choices=("cpu", "cuda", "mps"))
     parser.add_argument("--source", help="Optional exact source metadata filter")
@@ -36,8 +37,19 @@ def main() -> None:
     except (FileNotFoundError, ValueError, RuntimeError) as exc:
         raise SystemExit(f"Error: {exc}") from exc
 
-    print("\nCONSOLIDATED REVIEW BRIEF\n-------------------------")
+    print("\nANSWER\n------")
     print(result.answer)
+    print("\nRETRIEVED REVIEWS\n-----------------")
+    for review in result.reviews:
+        print(json.dumps({
+            "rank": review.rank,
+            "review_id": review.review_id,
+            "source": review.metadata.get("source"),
+            "rating": review.metadata.get("rating"),
+            "distance": round(review.distance, 4) if review.distance is not None else None,
+            "text": review.text,
+        }, ensure_ascii=False))
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,4 @@
+rank,barrier,mentions,wishlist_review_share_percent,negative_rate_percent,abandonment_rate_percent,high_intent_rate_percent,high_severity_rate_percent,opportunity_score,suggested_improvement
+1,stock_and_size_availability,1,20.0,100.0,100.0,0.0,100.0,54.3,Offer preferred-size and restock alerts.
+2,price_and_discount_transparency,1,20.0,100.0,100.0,0.0,100.0,54.3,Show final eligible price and price history.
+3,wishlist_reliability,3,60.0,66.7,0.0,0.0,66.7,34.7,Make saved-item state reliable across sessions.

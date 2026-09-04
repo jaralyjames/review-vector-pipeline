@@ -1,0 +1,429 @@
+{
+  "overview": {
+    "total_reviews": 1107,
+    "overall_dominant_sentiment": "positive"
+  },
+  "categories": [
+    {
+      "category": "product_quality_and_accuracy",
+      "label": "Product quality & accuracy",
+      "review_count": 350,
+      "review_share_percent": 31.6,
+      "sentiments": {
+        "positive": {
+          "count": 282,
+          "percent": 80.6
+        },
+        "negative": {
+          "count": 55,
+          "percent": 15.7
+        },
+        "neutral": {
+          "count": 13,
+          "percent": 3.7
+        }
+      },
+      "dominant_sentiment": "positive",
+      "summary": "Positive reviews praise high product quality, softness, and value. Customers expect the products to meet their quality expectations and appreciate timely delivery.",
+      "source_counts": {
+        "reddit": 52,
+        "play_store": 285,
+        "app_store": 13
+      }
+    },
+    {
+      "category": "size_fit_and_availability",
+      "label": "Size, fit & availability",
+      "review_count": 16,
+      "review_share_percent": 1.4,
+      "sentiments": {
+        "positive": {
+          "count": 7,
+          "percent": 43.8
+        },
+        "negative": {
+          "count": 7,
+          "percent": 43.8
+        },
+        "neutral": {
+          "count": 2,
+          "percent": 12.5
+        }
+      },
+      "dominant_sentiment": "mixed",
+      "summary": "Mixed reviews highlight praise for fit, fabric, and variety, but many complain about size mismatches, out‑of‑stock items, and difficult exchanges or returns. Customers expect accurate size availability and hassle‑free returns.",
+      "source_counts": {
+        "app_store": 2,
+        "play_store": 6,
+        "reddit": 8
+      }
+    },
+    {
+      "category": "pricing_discounts_and_value",
+      "label": "Pricing, discounts & value",
+      "review_count": 106,
+      "review_share_percent": 9.6,
+      "sentiments": {
+        "positive": {
+          "count": 66,
+          "percent": 62.3
+        },
+        "negative": {
+          "count": 30,
+          "percent": 28.3
+        },
+        "neutral": {
+          "count": 10,
+          "percent": 9.4
+        }
+      },
+      "dominant_sentiment": "positive",
+      "summary": "Customers praise the app’s generous discounts, affordable prices, and good quality items, noting frequent offers and coupons. Many highlight the value for money and quick delivery. A common expectation is for more discount coupons to be available.",
+      "source_counts": {
+        "play_store": 78,
+        "reddit": 26,
+        "app_store": 2
+      }
+    },
+    {
+      "category": "wishlist_and_cart_reliability",
+      "label": "Wishlist & cart reliability",
+      "review_count": 4,
+      "review_share_percent": 0.4,
+      "sentiments": {
+        "positive": {
+          "count": 0,
+          "percent": 0.0
+        },
+        "negative": {
+          "count": 3,
+          "percent": 75.0
+        },
+        "neutral": {
+          "count": 1,
+          "percent": 25.0
+        }
+      },
+      "dominant_sentiment": "negative",
+      "summary": "Users complain about Myntra’s wishlist cap and cart reliability. They feel restricted by a 1000‑item limit and frustration when items become unavailable or price‑shifted after adding to wishlist. Customers expect unlimited wishlisting, stable prices, and consistent stock availability.",
+      "source_counts": {
+        "reddit": 4
+      }
+    },
+    {
+      "category": "delivery_returns_and_refunds",
+      "label": "Delivery, returns & refunds",
+      "review_count": 183,
+      "review_share_percent": 16.5,
+      "sentiments": {
+        "positive": {
+          "count": 57,
+          "percent": 31.1
+        },
+        "negative": {
+          "count": 121,
+          "percent": 66.1
+        },
+        "neutral": {
+          "count": 5,
+          "percent": 2.7
+        }
+      },
+      "dominant_sentiment": "negative",
+      "summary": "Customers report frequent delivery delays, wrong or damaged items, failed return pickups, and slow or denied refunds. Poor customer support and inventory mismanagement worsen frustration. Many feel the platform’s policies unfairly penalize them. They expect on‑time delivery and prompt, full refunds for issues.",
+      "source_counts": {
+        "reddit": 55,
+        "play_store": 125,
+        "app_store": 3
+      }
+    },
+    {
+      "category": "support_payment_and_app_experience",
+      "label": "Support, payment & app experience",
+      "review_count": 448,
+      "review_share_percent": 40.5,
+      "sentiments": {
+        "positive": {
+          "count": 336,
+          "percent": 75.0
+        },
+        "negative": {
+          "count": 82,
+          "percent": 18.3
+        },
+        "neutral": {
+          "count": 30,
+          "percent": 6.7
+        }
+      },
+      "dominant_sentiment": "positive",
+      "summary": "Positive reviews highlight the app’s ease of use, wide brand selection, fast delivery, and hassle‑free returns. Customers appreciate responsive customer support and smooth payment. Many expect quick delivery and easy returns as key features.",
+      "source_counts": {
+        "play_store": 367,
+        "reddit": 67,
+        "app_store": 14
+      }
+    }
+  ],
+  "wishlist_opportunities": [
+    {
+      "barrier": "stock_and_size_availability",
+      "mentions": 1,
+      "wishlist_review_share_percent": 20.0,
+      "negative_rate_percent": 100.0,
+      "abandonment_rate_percent": 100.0,
+      "high_intent_rate_percent": 0.0,
+      "high_severity_rate_percent": 100.0,
+      "opportunity_score": 54.3,
+      "suggested_improvement": "Offer preferred-size and restock alerts.",
+      "samples": [
+        {
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "barrier": "price_and_discount_transparency",
+      "mentions": 1,
+      "wishlist_review_share_percent": 20.0,
+      "negative_rate_percent": 100.0,
+      "abandonment_rate_percent": 100.0,
+      "high_intent_rate_percent": 0.0,
+      "high_severity_rate_percent": 100.0,
+      "opportunity_score": 54.3,
+      "suggested_improvement": "Show final eligible price and price history.",
+      "samples": [
+        {
+          "review_id": "e3be87acaf850a0b6301",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "has anyone noticed that sales in myntra are just posters and nothing else. none of the items in my wishlist and cart got their price reduced, there were some coupons applicable few days ago which have also disappeared now. on top of that shamelessly taking unnecessary fees on everything. i have stopped purchasing from this shitty app just that some brands are exclusively available on it sadly."
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "barrier": "wishlist_reliability",
+      "mentions": 3,
+      "wishlist_review_share_percent": 60.0,
+      "negative_rate_percent": 66.7,
+      "abandonment_rate_percent": 0.0,
+      "high_intent_rate_percent": 0.0,
+      "high_severity_rate_percent": 66.7,
+      "opportunity_score": 34.7,
+      "suggested_improvement": "Make saved-item state reliable across sessions.",
+      "samples": [
+        {
+          "review_id": "4843ab0773c9f1b5b799",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "it has a 1000 product limit which is so stupid! i have to go there and remove some products to keep wishlisting new ones ¡"
+        },
+        {
+          "review_id": "53002c185d2be4711489",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "myntra doesn ’ t want me to wishlist the products. why? why is there a capping on whishlisting the items on myntra?? how does it make sense? what are you trying to achieve? you are literally losing out on a potential customer. no other shopping site does that. myntra won ’ t let me wishlist after a certain point of time. so annoying."
+        }
+      ],
+      "rank": 3
+    }
+  ],
+  "questions_answered": [
+    {
+      "question": "Why do users add fashion products to their wishlist?",
+      "answer": "The reviews do not contain any explicit statements about why users add items to a wishlist. The closest related comments describe the app’s wide fashion selection and frequent discounts, which might indirectly motivate wishlisting, but no direct user intent is captured.",
+      "samples": [
+        {
+          "review_id": "135e6980d742c0b0f78c",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent shopping app! the ui is smooth, products are genuine, and there are plenty of fashion choices for every budget. delivery is fast, returns are hassle - free, and customer support is helpful. highly recommended for online shopping!"
+        },
+        {
+          "review_id": "3aeb9a71cd3d8dd08dc4",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "i ' ve had a great shopping experience with myntra. the app is easy to use, offers a wide variety of fashion brands, and the product quality is generally excellent. delivery is usually on time, and returns and refunds are smooth and hassle - free. i also like the frequent discounts and deals, which make shopping more affordable. overall, it ' s one of the best online shopping apps for fashion. highly recommended!"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "What prevents wishlisted products from eventually being purchased?",
+      "answer": "No review cites reasons why a wishlisted item is never purchased. The nearest references discuss pricing and discounts, but they do not indicate barriers to conversion. Thus, the data does not reveal any specific deterrents.",
+      "samples": [
+        {
+          "review_id": "9bc792a0fdcf398ef7a7",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+        },
+        {
+          "review_id": "a28f37a4c90e4d5e3bec",
+          "source": "app_store",
+          "sentiment": "positive",
+          "text": "i find budget things here and sales are also meaningful"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "What uncertainties remain after users have identified a product they like?",
+      "answer": "The dataset contains no explicit mention of lingering uncertainties after a user has found a product they like. All reviews express satisfaction with the product and the shopping experience. Therefore, we cannot identify any specific uncertainties from the available evidence.",
+      "samples": [
+        {
+          "review_id": "1b1b1cd84c418733f9a3",
+          "source": "app_store",
+          "sentiment": "positive",
+          "text": "great product working well"
+        },
+        {
+          "review_id": "7c4404a0055aa7ff102d",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "mind blowing purchase awesome"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "What causes users to postpone a purchase?",
+      "answer": "No review in the set indicates reasons for postponing a purchase. Users consistently report immediate buying behavior driven by discounts, quality, and convenience. Thus, the dataset does not reveal any postponement causes.",
+      "samples": [
+        {
+          "review_id": "9bc792a0fdcf398ef7a7",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+        },
+        {
+          "review_id": "a28f37a4c90e4d5e3bec",
+          "source": "app_store",
+          "sentiment": "positive",
+          "text": "i find budget things here and sales are also meaningful"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "How do users compare multiple shortlisted products?",
+      "answer": "The reviews do not describe how users compare multiple shortlisted products. They focus on product quality, variety, and overall satisfaction. Consequently, the dataset lacks evidence of comparison strategies or criteria used during product selection.",
+      "samples": [
+        {
+          "review_id": "3aeb9a71cd3d8dd08dc4",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "i ' ve had a great shopping experience with myntra. the app is easy to use, offers a wide variety of fashion brands, and the product quality is generally excellent. delivery is usually on time, and returns and refunds are smooth and hassle - free. i also like the frequent discounts and deals, which make shopping more affordable. overall, it ' s one of the best online shopping apps for fashion. highly recommended!"
+        },
+        {
+          "review_id": "135e6980d742c0b0f78c",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent shopping app! the ui is smooth, products are genuine, and there are plenty of fashion choices for every budget. delivery is fast, returns are hassle - free, and customer support is helpful. highly recommended for online shopping!"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "What information do users seek outside Myntra/AJIO before purchasing?",
+      "answer": "Limited evidence suggests users compare prices and discounts with other platforms before buying. They often mention better deals elsewhere, indicating discount comparison is a key external factor. No explicit mention of other external research or reviews was found.",
+      "samples": [
+        {
+          "review_id": "d230e86411ba01bf9e38",
+          "source": "reddit",
+          "sentiment": "positive",
+          "text": "i only use myntra for buying cosmetics these days because they offer better discounts compared to nykaa."
+        },
+        {
+          "review_id": "a445887add5976afab44",
+          "source": "reddit",
+          "sentiment": "positive",
+          "text": "i sometimes find amazing indian wear from meesho of all places. i think those offline stores put up on meesho too. but we need to dig deep"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "What role do fit, size, styling, price, reviews, occasion and social validation play?",
+      "answer": "Fit and size are repeatedly praised as key to satisfaction, with users noting excellent trouser fitting and comfortable fabrics. Styling and product quality are implied through comments on softness and trendiness. Price and discounts strongly influence buying decisions, as users highlight better deals compared to competitors. Explicit mentions of reviews or social validation are scarce, suggesting these factors play a minor role in the current dataset.",
+      "samples": [
+        {
+          "review_id": "0b17f2015ea0984b6137",
+          "source": "app_store",
+          "sentiment": "positive",
+          "text": "the trouser fitting is absolutely stunning."
+        },
+        {
+          "review_id": "9bc792a0fdcf398ef7a7",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "When do users use the wishlist as genuine purchase intent versus simply as a bookmarking mechanism?",
+      "answer": "The dataset contains no explicit references to wishlist usage, so we cannot determine when users treat it as purchase intent versus bookmarking. The available reviews focus on product quality, app experience, and discounts. Without wishlist mentions, we cannot infer intent patterns. This limitation prevents any analysis of intent.",
+      "samples": [
+        {
+          "review_id": "135e6980d742c0b0f78c",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent shopping app! the ui is smooth, products are genuine, and there are plenty of fashion choices for every budget. delivery is fast, returns are hassle - free, and customer support is helpful. highly recommended for online shopping!"
+        },
+        {
+          "review_id": "3aeb9a71cd3d8dd08dc4",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "i ' ve had a great shopping experience with myntra. the app is easy to use, offers a wide variety of fashion brands, and the product quality is generally excellent. delivery is usually on time, and returns and refunds are smooth and hassle - free. i also like the frequent discounts and deals, which make shopping more affordable. overall, it ' s one of the best online shopping apps for fashion. highly recommended!"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "How do these behaviors differ across user segments?",
+      "answer": "No reviews discuss user segmentation or differing wishlist behaviors. The comments are uniformly positive and lack demographic or behavioral distinctions. Therefore we cannot describe how wishlist usage varies across segments. The dataset does not provide segment identifiers or context to compare behaviors. Thus, any segment-based insights are unavailable.",
+      "samples": [
+        {
+          "review_id": "9bc792a0fdcf398ef7a7",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+        },
+        {
+          "review_id": "801c23d4e570e20e9815",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "perfect shopping app"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    },
+    {
+      "question": "What unmet needs emerge consistently across user conversations?",
+      "answer": "The reviews do not mention unmet needs or pain points related to wishlist or shopping. All comments praise product quality, app usability, and discounts. Consequently, we cannot identify consistent unmet needs from this dataset. This lack of negative or constructive feedback limits our ability to surface user pain points.",
+      "samples": [
+        {
+          "review_id": "7c09b4974f58e93d34b2",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "good fabric"
+        },
+        {
+          "review_id": "7c4404a0055aa7ff102d",
+          "source": "play_store",
+          "sentiment": "positive",
+          "text": "mind blowing purchase awesome"
+        }
+      ],
+      "dominant_sentiment": "positive"
+    }
+  ],
+  "methodology_note": "Review shares are evidence signals, not measured conversion rates."
+}

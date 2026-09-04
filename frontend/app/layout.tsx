@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./questions.css";
 
 export const metadata: Metadata = {
   title: "Myntra Review Analyser",

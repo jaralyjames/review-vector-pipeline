@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.analytics import source_statistics
+from backend.analytics import review_analysis, source_statistics
 from backend.schemas import QueryRequest, QueryResponse, SourceReview, StatsResponse
 from review_vector_pipeline.retrieval import retrieve_and_answer
 
@@ -20,10 +20,13 @@ CHROMA_DIRECTORY = Path(
 ).resolve()
 COLLECTION_NAME = os.getenv("CHROMA_COLLECTION", "cleaned_reviews")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+ANALYSIS_REPORT = Path(
+    os.getenv("ANALYSIS_REPORT_PATH", str(BASE_DIR / "data" / "review_analysis.json"))
+).resolve()
 FRONTEND_ORIGINS = [
     origin.strip()
     for origin in os.getenv(
-        "FRONTEND_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000,https://myntra-review-analyser.vercel.app "
+        "FRONTEND_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
     ).split(",")
     if origin.strip()
 ]
@@ -48,6 +51,14 @@ def stats() -> StatsResponse:
     try:
         result = source_statistics(CHROMA_DIRECTORY, COLLECTION_NAME)
         return StatsResponse(**result)
+    except (FileNotFoundError, ValueError) as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@app.get("/api/analysis")
+def analysis() -> dict[str, object]:
+    try:
+        return review_analysis(ANALYSIS_REPORT)
     except (FileNotFoundError, ValueError) as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
 
