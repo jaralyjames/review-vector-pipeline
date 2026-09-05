@@ -1,4 +1,4 @@
-"""Classify ChromaDB reviews, summarize sentiment, and rank wishlist opportunities.
+"""Classify ChromaDB reviews, summarize issues, and rank wishlist opportunities.
 
 Every unique review receives exactly one primary category and one sentiment.
 Classification is cached back into every Chroma chunk, so later runs process only
@@ -38,7 +38,7 @@ if load_dotenv:
 
 
 ANALYSIS_VERSION = 1
-QUESTION_ANALYSIS_VERSION = 2
+QUESTION_ANALYSIS_VERSION = 3
 CATEGORIES = (
     "product_quality_and_accuracy",
     "size_fit_and_availability",
@@ -111,10 +111,11 @@ Category boundaries:
 Choose the single main issue. Use not_wishlist_related when wishlist_relevant is false.
 Do not infer details absent from the review."""
 
-SUMMARY_PROMPT = """Summarize the supplied online-shopping reviews in no more than
-55 words. Focus on the stated dominant sentiment and its main recurring reasons.
-Mention one customer expectation when supported. Do not invent numbers, causes,
-features or facts. Return JSON only: {"summary": "..."}."""
+SUMMARY_PROMPT = """Summarize the concrete issues customers face in this shopping
+category in no more than 65 words. Prioritize specific friction, failures,
+uncertainties and unmet expectations. Ignore generic praise and do not frame the
+answer as a sentiment summary. Do not invent numbers, causes, features or facts.
+Return JSON only: {"issues_summary": "..."}."""
 
 QUESTIONS = (
     "Why do users add fashion products to their wishlist?",
@@ -131,8 +132,9 @@ QUESTIONS = (
 
 QUESTION_PROMPT = """Answer the supplied ecommerce research questions using only
 the supplied customer reviews. The evidence has already been filtered to remove
-duplicates and routine, low-information praise. Treat repeated themes as one signal
-rather than allowing repeated wording to dominate the answer.
+duplicates and routine, low-information praise. Prioritize unusual, specific and
+high-information reviews. Treat repeated themes as one signal rather than allowing
+common or repeated wording to dominate the answer.
 Return JSON only as {"results": [...]}. Each result must include row_key, question,
 answer, and sample_review_ids. The answer must be a concise 45-80 word synthesis.
 sample_review_ids must contain exactly two different review IDs that directly support
@@ -246,20 +248,59 @@ def validate_result(value: object, row_key: str) -> dict[str, Any]:
     return result
 
 
+def parse_json_response(content: object) -> dict[str, Any]:
+    text = str(content or "").strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.IGNORECASE)
+    try:
+        parsed = json.loads(text)
+        if isinstance(parsed, dict):
+            return parsed
+    except json.JSONDecodeError:
+        pass
+
+    # Plain response mode may wrap valid JSON in a short explanation. Decode
+    # the first complete JSON object instead of relying on greedy brace slicing.
+    decoder = json.JSONDecoder()
+    for match in re.finditer(r"\{", text):
+        try:
+            parsed, _ = decoder.raw_decode(text[match.start():])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(parsed, dict):
+            return parsed
+    raise ValueError("Groq returned no valid JSON object")
+
+
 def call_json(client: Any, model: str, system: str, payload: object,
               max_retries: int) -> dict[str, Any]:
     last_error: Exception | None = None
     for attempt in range(max_retries):
         try:
-            response = client.chat.completions.create(
-                model=model, temperature=0, response_format={"type": "json_object"},
-                messages=[{"role": "system", "content": system},
-                          {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}],
-            )
-            return json.loads(response.choices[0].message.content)
+            request: dict[str, Any] = {
+                "model": model,
+                "temperature": 0,
+                "messages": [
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": json.dumps(payload, ensure_ascii=False)},
+                ],
+            }
+            # Groq can reject an otherwise reasonable generation while enforcing
+            # JSON mode. Use it once, then retry in plain mode and parse defensively.
+            if attempt == 0:
+                request["response_format"] = {"type": "json_object"}
+            else:
+                request["messages"][0]["content"] += (
+                    "\nReturn one valid JSON object only. Do not use markdown fences "
+                    "or add explanatory text."
+                )
+            response = client.chat.completions.create(**request)
+            return parse_json_response(response.choices[0].message.content)
         except Exception as error:
             last_error = error
             if attempt + 1 < max_retries:
+                if attempt == 0:
+                    print("Strict JSON mode failed; retrying with plain JSON output...")
                 time.sleep(2 ** attempt)
     raise RuntimeError(f"Groq request failed after {max_retries} attempts: {last_error}")
 
@@ -308,16 +349,10 @@ def classify_reviews(collection: Any, reviews: list[Review], client: Any, model:
         print(f"Classified {min(start + len(batch), len(pending))}/{len(pending)}")
 
 
-def dominant_sentiment(counts: Counter[str]) -> str:
-    highest = max(counts.get(sentiment, 0) for sentiment in SENTIMENTS)
-    winners = [sentiment for sentiment in SENTIMENTS if counts.get(sentiment, 0) == highest]
-    return winners[0] if len(winners) == 1 else "mixed"
-
-
-def summarize_category(client: Any, model: str, category: str, sentiment: str,
+def summarize_category(client: Any, model: str, category: str,
                        reviews: list[Review], sample_size: int, max_retries: int) -> str:
-    candidates = [review for review in reviews if sentiment == "mixed" or review.sentiment == sentiment]
-    candidates.sort(key=lambda review: review.confidence, reverse=True)
+    candidates = [review for review in reviews if not is_routine_positive(review)]
+    candidates.sort(key=evidence_information_score, reverse=True)
     # Prefer source diversity, then fill remaining slots by confidence.
     sample: list[Review] = []
     seen_sources: set[str] = set()
@@ -327,10 +362,10 @@ def summarize_category(client: Any, model: str, category: str, sentiment: str,
     for review in candidates:
         if review not in sample and len(sample) < sample_size:
             sample.append(review)
-    payload = {"category": CATEGORY_LABELS[category], "dominant_sentiment": sentiment,
+    payload = {"category": CATEGORY_LABELS[category],
                "reviews": [{"source": r.source, "text": r.text} for r in sample]}
     parsed = call_json(client, model, SUMMARY_PROMPT, payload, max_retries)
-    summary = str(parsed.get("summary") or "").strip()
+    summary = str(parsed.get("issues_summary") or "").strip()
     if not summary:
         raise ValueError(f"Empty summary for {category}")
     return summary
@@ -342,19 +377,14 @@ def build_category_results(reviews: list[Review], client: Any, model: str,
     total = len(reviews)
     for category in CATEGORIES:
         matches = [review for review in reviews if review.primary_category == category]
-        counts = Counter(review.sentiment for review in matches)
-        dominant = dominant_sentiment(counts) if matches else "no_reviews"
-        summary = (summarize_category(client, model, category, dominant, matches,
+        summary = (summarize_category(client, model, category, matches,
                                       sample_size, max_retries) if matches else
                    "No reviews were assigned to this category.")
         results.append({
             "category": category, "label": CATEGORY_LABELS[category],
             "review_count": len(matches),
             "review_share_percent": round(len(matches) / total * 100, 1) if total else 0,
-            "sentiments": {sentiment: {"count": counts.get(sentiment, 0),
-                "percent": round(counts.get(sentiment, 0) / len(matches) * 100, 1) if matches else 0}
-                for sentiment in SENTIMENTS},
-            "dominant_sentiment": dominant, "summary": summary,
+            "issues_summary": summary,
             "source_counts": dict(Counter(review.source for review in matches)),
         })
     return results
@@ -375,7 +405,21 @@ def rank_wishlist_opportunities(reviews: list[Review], sample_count: int) -> lis
         source_score = min(len({r.source for r in matches}) / 3, 1) * 100
         score = round(share * .30 + abandonment_rate * .25 + high_severity_rate * .20
                       + high_intent_rate * .15 + source_score * .10, 1)
-        samples = sorted(matches, key=lambda r: (r.sentiment == "negative", r.confidence), reverse=True)[:sample_count]
+        ranked_samples = sorted(
+            matches, key=lambda r: (r.sentiment == "negative", *evidence_information_score(r)),
+            reverse=True,
+        )
+        samples: list[Review] = []
+        seen_sources: set[str] = set()
+        for review in ranked_samples:
+            if (review.source not in seen_sources and sufficiently_different(review, samples)
+                    and len(samples) < sample_count):
+                samples.append(review)
+                seen_sources.add(review.source)
+        for review in ranked_samples:
+            if (review not in samples and sufficiently_different(review, samples)
+                    and len(samples) < sample_count):
+                samples.append(review)
         opportunities.append({
             "barrier": barrier, "mentions": len(matches),
             "wishlist_review_share_percent": round(share, 1),
@@ -436,12 +480,8 @@ def evidence_information_score(review: Review) -> tuple[int, int, float]:
     return (len(tokens & signals), min(len(tokens), 80), review.confidence)
 
 
-def select_question_evidence(reviews: list[Review], limit: int) -> tuple[str, list[Review]]:
-    overall = dominant_sentiment(Counter(review.sentiment for review in reviews))
-    dominant_reviews = reviews if overall == "mixed" else [review for review in reviews if review.sentiment == overall]
-    eligible = [review for review in dominant_reviews if not is_routine_positive(review)]
-    if len(eligible) < 2:
-        eligible = [review for review in reviews if not is_routine_positive(review)]
+def select_question_evidence(reviews: list[Review], limit: int) -> list[Review]:
+    eligible = [review for review in reviews if not is_routine_positive(review)]
     # Rank specific reviews above generic comments, then remove near-duplicates.
     ranked = sorted(eligible, key=evidence_information_score, reverse=True)
     unique_ranked: list[Review] = []
@@ -460,7 +500,7 @@ def select_question_evidence(reviews: list[Review], limit: int) -> tuple[str, li
             selected.append(review)
     if len(selected) < 2:
         raise ValueError("At least two unique, informative reviews are required for question answers.")
-    return overall, selected
+    return selected
 
 
 def validate_question_results(
@@ -500,13 +540,11 @@ def generate_question_batch(
     client: Any,
     model: str,
     questions: list[str],
-    dominant: str,
     evidence: list[Review],
     max_retries: int,
 ) -> list[dict[str, Any]]:
     evidence_by_id = {review.review_id: review for review in evidence}
     payload = {
-        "dominant_sentiment": dominant,
         "questions": [{"row_key": str(index), "question": question}
                       for index, question in enumerate(questions)],
         "reviews": [
@@ -522,9 +560,9 @@ def generate_question_batch(
         if len(questions) == 1:
             raise
         middle = len(questions) // 2
-        return (generate_question_batch(client, model, questions[:middle], dominant,
+        return (generate_question_batch(client, model, questions[:middle],
                                         evidence, max_retries)
-                + generate_question_batch(client, model, questions[middle:], dominant,
+                + generate_question_batch(client, model, questions[middle:],
                                           evidence, max_retries))
 
 
@@ -546,19 +584,17 @@ def load_cached_question_answers(report_path: Path) -> list[dict[str, Any]] | No
 def build_question_answers(
     reviews: list[Review], client: Any, model: str, batch_size: int,
     evidence_size: int, max_retries: int,
-) -> tuple[str, list[dict[str, Any]]]:
-    dominant, evidence = select_question_evidence(reviews, evidence_size)
+) -> list[dict[str, Any]]:
+    evidence = select_question_evidence(reviews, evidence_size)
     answers: list[dict[str, Any]] = []
     questions = list(QUESTIONS)
     for start in range(0, len(questions), batch_size):
         answers.extend(generate_question_batch(
-            client, model, questions[start:start + batch_size], dominant,
+            client, model, questions[start:start + batch_size],
             evidence, max_retries,
         ))
         print(f"Answered {min(start + batch_size, len(questions))}/{len(questions)} questions")
-    for answer in answers:
-        answer["dominant_sentiment"] = dominant
-    return dominant, answers
+    return answers
 
 
 def write_outputs(output: Path, reviews: list[Review], categories: list[dict[str, Any]],
@@ -566,8 +602,7 @@ def write_outputs(output: Path, reviews: list[Review], categories: list[dict[str
                   question_answers: list[dict[str, Any]]) -> None:
     output.mkdir(parents=True, exist_ok=True)
     report = {
-        "overview": {"total_reviews": len(reviews),
-                     "overall_dominant_sentiment": dominant_sentiment(Counter(r.sentiment for r in reviews))},
+        "overview": {"total_reviews": len(reviews)},
         "categories": categories, "wishlist_opportunities": opportunities,
         "question_analysis_version": QUESTION_ANALYSIS_VERSION,
         "questions_answered": question_answers,
@@ -577,14 +612,12 @@ def write_outputs(output: Path, reviews: list[Review], categories: list[dict[str
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     with (output / "review_category_summary.csv").open("w", encoding="utf-8", newline="") as handle:
         fields = ["category", "label", "review_count", "review_share_percent",
-                  "positive_count", "positive_percent", "negative_count", "negative_percent",
-                  "neutral_count", "neutral_percent", "dominant_sentiment", "summary"]
+                  "issues_summary"]
         writer = csv.DictWriter(handle, fieldnames=fields); writer.writeheader()
         for item in categories:
             writer.writerow({"category": item["category"], "label": item["label"],
                 "review_count": item["review_count"], "review_share_percent": item["review_share_percent"],
-                **{f"{s}_{k}": item["sentiments"][s][k] for s in SENTIMENTS for k in ("count", "percent")},
-                "dominant_sentiment": item["dominant_sentiment"], "summary": item["summary"]})
+                "issues_summary": item["issues_summary"]})
     with (output / "classified_reviews.csv").open("w", encoding="utf-8", newline="") as handle:
         fields = ["review_id", "source", "primary_category", "sentiment", "confidence",
                   "wishlist_relevant", "wishlist_barrier", "purchase_intent",
@@ -602,11 +635,10 @@ def write_outputs(output: Path, reviews: list[Review], categories: list[dict[str
 
 
 def print_results(categories: list[dict[str, Any]], opportunities: list[dict[str, Any]]) -> None:
-    print("\nCATEGORY AND SENTIMENT SUMMARY")
+    print("\nCATEGORY ISSUE SUMMARY")
     for item in categories:
-        print(f"\n{item['label']}: {item['review_count']} reviews | "
-              f"DOMINANT: {item['dominant_sentiment'].upper()}")
-        print(item["summary"])
+        print(f"\n{item['label']}: {item['review_count']} reviews")
+        print(item["issues_summary"])
     print("\nWISHLIST IMPROVEMENT OPPORTUNITIES")
     for item in opportunities:
         print(f"{item['rank']}. {item['barrier']} — score {item['opportunity_score']}: "
@@ -648,7 +680,7 @@ def main() -> None:
     report_path = args.output_directory / "review_analysis.json"
     question_answers = None if args.regenerate_question_answers else load_cached_question_answers(report_path)
     if question_answers is None:
-        _, question_answers = build_question_answers(
+        question_answers = build_question_answers(
             reviews, client, args.model, args.question_batch_size,
             args.question_evidence_size, args.max_retries,
         )

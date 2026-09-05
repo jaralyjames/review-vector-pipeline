@@ -1,7 +1,6 @@
 {
   "overview": {
-    "total_reviews": 1107,
-    "overall_dominant_sentiment": "positive"
+    "total_reviews": 1107
   },
   "categories": [
     {
@@ -9,22 +8,7 @@
       "label": "Product quality & accuracy",
       "review_count": 350,
       "review_share_percent": 31.6,
-      "sentiments": {
-        "positive": {
-          "count": 282,
-          "percent": 80.6
-        },
-        "negative": {
-          "count": 55,
-          "percent": 15.7
-        },
-        "neutral": {
-          "count": 13,
-          "percent": 3.7
-        }
-      },
-      "dominant_sentiment": "positive",
-      "summary": "Positive reviews praise high product quality, softness, and value. Customers expect the products to meet their quality expectations and appreciate timely delivery.",
+      "issues_summary": "Customers report declining fabric quality, thin material, poor stitching, and images that don’t match delivered items. Mislabeling of size, fit, and material (e.g., polyester as silk) is common. Wrong or used products are received, and returns are denied or charged a convenience fee. Refunds are partial or deducted to Myntra cash, causing frustration. Overall, quality control and accurate product information are unreliable.",
       "source_counts": {
         "reddit": 52,
         "play_store": 285,
@@ -36,22 +20,7 @@
       "label": "Size, fit & availability",
       "review_count": 16,
       "review_share_percent": 1.4,
-      "sentiments": {
-        "positive": {
-          "count": 7,
-          "percent": 43.8
-        },
-        "negative": {
-          "count": 7,
-          "percent": 43.8
-        },
-        "neutral": {
-          "count": 2,
-          "percent": 12.5
-        }
-      },
-      "dominant_sentiment": "mixed",
-      "summary": "Mixed reviews highlight praise for fit, fabric, and variety, but many complain about size mismatches, out‑of‑stock items, and difficult exchanges or returns. Customers expect accurate size availability and hassle‑free returns.",
+      "issues_summary": "Customers report receiving wrong sizes, items marked in stock but unavailable for exchange, limited return options, inconsistent size labeling, and difficulty finding desired sizes. They also note frustration with unhelpful staff and lack of accurate size charts, leading to repeated returns or refunds.",
       "source_counts": {
         "app_store": 2,
         "play_store": 6,
@@ -63,22 +32,7 @@
       "label": "Pricing, discounts & value",
       "review_count": 106,
       "review_share_percent": 9.6,
-      "sentiments": {
-        "positive": {
-          "count": 66,
-          "percent": 62.3
-        },
-        "negative": {
-          "count": 30,
-          "percent": 28.3
-        },
-        "neutral": {
-          "count": 10,
-          "percent": 9.4
-        }
-      },
-      "dominant_sentiment": "positive",
-      "summary": "Customers praise the app’s generous discounts, affordable prices, and good quality items, noting frequent offers and coupons. Many highlight the value for money and quick delivery. A common expectation is for more discount coupons to be available.",
+      "issues_summary": "Customers complain that discounts and coupons often disappear or are not applied, sales are misleading, and high service or convenience fees inflate prices. First‑order benefits are denied, orders get cancelled without explanation, and invoices contain errors leading to partial refunds. Quality is perceived as poor, with polyester items fading quickly, and customers feel overcharged for similar products elsewhere.",
       "source_counts": {
         "play_store": 78,
         "reddit": 26,
@@ -90,22 +44,7 @@
       "label": "Wishlist & cart reliability",
       "review_count": 4,
       "review_share_percent": 0.4,
-      "sentiments": {
-        "positive": {
-          "count": 0,
-          "percent": 0.0
-        },
-        "negative": {
-          "count": 3,
-          "percent": 75.0
-        },
-        "neutral": {
-          "count": 1,
-          "percent": 25.0
-        }
-      },
-      "dominant_sentiment": "negative",
-      "summary": "Users complain about Myntra’s wishlist cap and cart reliability. They feel restricted by a 1000‑item limit and frustration when items become unavailable or price‑shifted after adding to wishlist. Customers expect unlimited wishlisting, stable prices, and consistent stock availability.",
+      "issues_summary": "Customers report that adding items to wishlist or cart triggers price hikes, sudden unavailability, or long stockouts, causing uncertainty and forcing purchases elsewhere. They also face wishlist limits: a 1,000‑item cap, time‑based restrictions, and forced removal of items, which frustrates and discourages use.",
       "source_counts": {
         "reddit": 4
       }
@@ -115,22 +54,7 @@
       "label": "Delivery, returns & refunds",
       "review_count": 183,
       "review_share_percent": 16.5,
-      "sentiments": {
-        "positive": {
-          "count": 57,
-          "percent": 31.1
-        },
-        "negative": {
-          "count": 121,
-          "percent": 66.1
-        },
-        "neutral": {
-          "count": 5,
-          "percent": 2.7
-        }
-      },
-      "dominant_sentiment": "negative",
-      "summary": "Customers report frequent delivery delays, wrong or damaged items, failed return pickups, and slow or denied refunds. Poor customer support and inventory mismanagement worsen frustration. Many feel the platform’s policies unfairly penalize them. They expect on‑time delivery and prompt, full refunds for issues.",
+      "issues_summary": "Customers report receiving wrong or damaged items, being forced to reorder and pay platform fees, and facing high convenience fees after multiple returns. Pickup failures, delayed or denied refunds, and unresponsive support create uncertainty. Delivery is often late or incorrectly marked as failed, preventing returns. Gift‑wrapping fees are non‑refundable, and customers are blacklisted for normal returns.",
       "source_counts": {
         "reddit": 55,
         "play_store": 125,
@@ -142,22 +66,7 @@
       "label": "Support, payment & app experience",
       "review_count": 448,
       "review_share_percent": 40.5,
-      "sentiments": {
-        "positive": {
-          "count": 336,
-          "percent": 75.0
-        },
-        "negative": {
-          "count": 82,
-          "percent": 18.3
-        },
-        "neutral": {
-          "count": 30,
-          "percent": 6.7
-        }
-      },
-      "dominant_sentiment": "positive",
-      "summary": "Positive reviews highlight the app’s ease of use, wide brand selection, fast delivery, and hassle‑free returns. Customers appreciate responsive customer support and smooth payment. Many expect quick delivery and easy returns as key features.",
+      "issues_summary": "Customers report delayed or missing deliveries, refunds credited to wrong accounts, unresponsive support that repeats generic answers, difficulty with returns, extra charges, poor product quality, lack of dark mode, and excessive packaging waste.",
       "source_counts": {
         "play_store": 367,
         "reddit": 67,
@@ -218,211 +127,202 @@
       "suggested_improvement": "Make saved-item state reliable across sessions.",
       "samples": [
         {
-          "review_id": "4843ab0773c9f1b5b799",
-          "source": "reddit",
-          "sentiment": "negative",
-          "text": "it has a 1000 product limit which is so stupid! i have to go there and remove some products to keep wishlisting new ones ¡"
-        },
-        {
           "review_id": "53002c185d2be4711489",
           "source": "reddit",
           "sentiment": "negative",
           "text": "myntra doesn ’ t want me to wishlist the products. why? why is there a capping on whishlisting the items on myntra?? how does it make sense? what are you trying to achieve? you are literally losing out on a potential customer. no other shopping site does that. myntra won ’ t let me wishlist after a certain point of time. so annoying."
+        },
+        {
+          "review_id": "4843ab0773c9f1b5b799",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "it has a 1000 product limit which is so stupid! i have to go there and remove some products to keep wishlisting new ones ¡"
         }
       ],
       "rank": 3
     }
   ],
+  "question_analysis_version": 3,
   "questions_answered": [
     {
       "question": "Why do users add fashion products to their wishlist?",
-      "answer": "The reviews do not contain any explicit statements about why users add items to a wishlist. The closest related comments describe the app’s wide fashion selection and frequent discounts, which might indirectly motivate wishlisting, but no direct user intent is captured.",
+      "answer": "Users add fashion items to their wishlists to keep a running list of products they like and intend to buy later, hoping to catch price drops or restocks. The reviews show that many add items with the expectation that sales or discounts will apply, but often the prices rise or the items become unavailable, leading to frustration.",
       "samples": [
         {
-          "review_id": "135e6980d742c0b0f78c",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent shopping app! the ui is smooth, products are genuine, and there are plenty of fashion choices for every budget. delivery is fast, returns are hassle - free, and customer support is helpful. highly recommended for online shopping!"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "3aeb9a71cd3d8dd08dc4",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "i ' ve had a great shopping experience with myntra. the app is easy to use, offers a wide variety of fashion brands, and the product quality is generally excellent. delivery is usually on time, and returns and refunds are smooth and hassle - free. i also like the frequent discounts and deals, which make shopping more affordable. overall, it ' s one of the best online shopping apps for fashion. highly recommended!"
+          "review_id": "e3be87acaf850a0b6301",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "has anyone noticed that sales in myntra are just posters and nothing else. none of the items in my wishlist and cart got their price reduced, there were some coupons applicable few days ago which have also disappeared now. on top of that shamelessly taking unnecessary fees on everything. i have stopped purchasing from this shitty app just that some brands are exclusively available on it sadly."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "What prevents wishlisted products from eventually being purchased?",
-      "answer": "No review cites reasons why a wishlisted item is never purchased. The nearest references discuss pricing and discounts, but they do not indicate barriers to conversion. Thus, the data does not reveal any specific deterrents.",
+      "answer": "Customers often abandon wishlists because items become unavailable, prices rise, or delivery options disappear while they wait. In one case, a product’s price jumped and it went out of stock in the user’s area, only to reappear later at a lower price. Another user reported that after keeping an item in the cart for a few hours, their pincode suddenly became ‘unserviceable’, preventing purchase.",
       "samples": [
         {
-          "review_id": "9bc792a0fdcf398ef7a7",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "a28f37a4c90e4d5e3bec",
-          "source": "app_store",
-          "sentiment": "positive",
-          "text": "i find budget things here and sales are also meaningful"
+          "review_id": "731ccd13c98cf1daae53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "yeah this has happened with l ' oreal n tresseme products for me too. earlier i thought maybe it ' s because this time another seller is providing it or something ( i was * stupidly * trying to give them benefit of doubt ) but that ' s nonsense, they have multiple courier partners, almost everything should be deliverable. why does this only happen when good discounts / flash sales happen. multiple times my pincode has suddenly become ' unserviceable ' after keeping the item in cart for a few hours or couple of days. nonsense."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "What uncertainties remain after users have identified a product they like?",
-      "answer": "The dataset contains no explicit mention of lingering uncertainties after a user has found a product they like. All reviews express satisfaction with the product and the shopping experience. Therefore, we cannot identify any specific uncertainties from the available evidence.",
+      "answer": "Even after spotting a desired item, shoppers face uncertainty about price stability, stock availability, and discount applicability. Prices can rise or fall unexpectedly, items may become unavailable or out of stock in the buyer’s area, and coupons or sales may disappear, leaving buyers unsure whether they’re getting the best deal or if the product will still be deliverable.",
       "samples": [
         {
-          "review_id": "1b1b1cd84c418733f9a3",
-          "source": "app_store",
-          "sentiment": "positive",
-          "text": "great product working well"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "7c4404a0055aa7ff102d",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "mind blowing purchase awesome"
+          "review_id": "e3be87acaf850a0b6301",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "has anyone noticed that sales in myntra are just posters and nothing else. none of the items in my wishlist and cart got their price reduced, there were some coupons applicable few days ago which have also disappeared now. on top of that shamelessly taking unnecessary fees on everything. i have stopped purchasing from this shitty app just that some brands are exclusively available on it sadly."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "What causes users to postpone a purchase?",
-      "answer": "No review in the set indicates reasons for postponing a purchase. Users consistently report immediate buying behavior driven by discounts, quality, and convenience. Thus, the dataset does not reveal any postponement causes.",
+      "answer": "Users delay buying because they see price hikes or stock drops after adding to cart, or their pincode becomes unserviceable, and coupons or discounts vanish, making them wait for better deals or availability.",
       "samples": [
         {
-          "review_id": "9bc792a0fdcf398ef7a7",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "a28f37a4c90e4d5e3bec",
-          "source": "app_store",
-          "sentiment": "positive",
-          "text": "i find budget things here and sales are also meaningful"
+          "review_id": "731ccd13c98cf1daae53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "yeah this has happened with l ' oreal n tresseme products for me too. earlier i thought maybe it ' s because this time another seller is providing it or something ( i was * stupidly * trying to give them benefit of doubt ) but that ' s nonsense, they have multiple courier partners, almost everything should be deliverable. why does this only happen when good discounts / flash sales happen. multiple times my pincode has suddenly become ' unserviceable ' after keeping the item in cart for a few hours or couple of days. nonsense."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "How do users compare multiple shortlisted products?",
-      "answer": "The reviews do not describe how users compare multiple shortlisted products. They focus on product quality, variety, and overall satisfaction. Consequently, the dataset lacks evidence of comparison strategies or criteria used during product selection.",
+      "answer": "Users often add items to wishlist or cart to track price and availability, then compare how prices fluctuate over time and whether discounts or coupons apply. They also compare service fees and shipping costs across platforms, noting that some items may become unavailable or out of stock after a while. They rely on these observations to decide when to purchase.",
       "samples": [
         {
-          "review_id": "3aeb9a71cd3d8dd08dc4",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "i ' ve had a great shopping experience with myntra. the app is easy to use, offers a wide variety of fashion brands, and the product quality is generally excellent. delivery is usually on time, and returns and refunds are smooth and hassle - free. i also like the frequent discounts and deals, which make shopping more affordable. overall, it ' s one of the best online shopping apps for fashion. highly recommended!"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "135e6980d742c0b0f78c",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent shopping app! the ui is smooth, products are genuine, and there are plenty of fashion choices for every budget. delivery is fast, returns are hassle - free, and customer support is helpful. highly recommended for online shopping!"
+          "review_id": "e3be87acaf850a0b6301",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "has anyone noticed that sales in myntra are just posters and nothing else. none of the items in my wishlist and cart got their price reduced, there were some coupons applicable few days ago which have also disappeared now. on top of that shamelessly taking unnecessary fees on everything. i have stopped purchasing from this shitty app just that some brands are exclusively available on it sadly."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "What information do users seek outside Myntra/AJIO before purchasing?",
-      "answer": "Limited evidence suggests users compare prices and discounts with other platforms before buying. They often mention better deals elsewhere, indicating discount comparison is a key external factor. No explicit mention of other external research or reviews was found.",
+      "answer": "Users often look beyond Myntra/AJIO for price comparisons, in‑store try‑on, and alternative online retailers. They browse other sites (including Reddit‑discovered ones) and visit physical stores to compare discounts, check fabric quality, and test fit before committing to a purchase. This behavior reflects uncertainty about product quality, sizing, and hidden fees, prompting users to gather external reviews, compare prices, and physically inspect garments.",
       "samples": [
         {
-          "review_id": "d230e86411ba01bf9e38",
+          "review_id": "1b404a3defb1edd18108",
           "source": "reddit",
-          "sentiment": "positive",
-          "text": "i only use myntra for buying cosmetics these days because they offer better discounts compared to nykaa."
+          "sentiment": "negative",
+          "text": "girl same!!! i was gonna write that in the comment too earlier. i ' m really thinking it ' s time to go back to the stores. we can get 5 - 10 % discounts at stores too, plus we can try things so color match, size and fit match problem doesn ' t happen. online shopping was a convenience but these greedy businesses like myntra, tira and nykaa have completely taken all joy out of it and made it extremely stressful. hours of scrolling to find a good product and then being harassed with extra charges, insulting discounts, poor customer support, not taking returns, sending poor quality products nearing expiry dates, and so on. its just not worth it anymore. and this is coming from someone who hates going to the stores and interacting with store sales people. i despise the experience. so imagine how much bad they have made it online that i am considering going back to physical stores. it ' s horrible. plus the carbon footprint because of packaging and plastic is also too much. usually i don ' t even take bags from a store and just carry stuff in my vehicle storage space. but with myntra there is so much plastic waste. unless it ' s a foreign brand that we can ' t even take bags from a store and just carry stuff in my vehicle storage space. but with myntra there is so much plastic waste. unless it ' s a foreign brand that we can ' t get in stores i think it ' s not worth the hassle of online shopping from these greedy apps who don ' t value customers at all and only care about money and targets. sure every business care about money, but at least provide the service properly man. these people have become so arrogant as if we are totally dependent on them for our shopping needs so they can treat us however they like without consequences. they have become way too cocky."
         },
         {
-          "review_id": "a445887add5976afab44",
+          "review_id": "4058d79cccbf425e9c59",
           "source": "reddit",
-          "sentiment": "positive",
-          "text": "i sometimes find amazing indian wear from meesho of all places. i think those offline stores put up on meesho too. but we need to dig deep"
+          "sentiment": "negative",
+          "text": "i generally buy jeans and tops from lesser - known online sites ( discovered via reddit ) or offline stores. i actually prefer shopping in person because i make a day out of it... inviting friends, dressing up, and trying on many things at once. now that i ’ m preparing for a wedding, i ’ m looking for kurta and pajama options. i ’ m finding myntra incredibly boring and not at all cost - friendly. for instance, while amazon might charge 5 rupees for a service fee, myntra charges 20 – 50!! even when you decide to go for slightly more expensive options ( 2k + ), the fabric often turns out to be completely polyester. i know people prefer myntra for the variety and ease of returns, but it isn ' t true variety.... everyone ends up wearing the same thing. plus, the quality is poor. items fade within a year if you use it often. it really contributes to useless overconsumption and fast fashion. it ’ s barely even ' fashion ' at this point, as unique styles are overpriced on myntra, whereas other sites offer much better value for the money!!"
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "What role do fit, size, styling, price, reviews, occasion and social validation play?",
-      "answer": "Fit and size are repeatedly praised as key to satisfaction, with users noting excellent trouser fitting and comfortable fabrics. Styling and product quality are implied through comments on softness and trendiness. Price and discounts strongly influence buying decisions, as users highlight better deals compared to competitors. Explicit mentions of reviews or social validation are scarce, suggesting these factors play a minor role in the current dataset.",
+      "answer": "Fit and size are paramount; customers repeatedly complain about incorrect sizing and poor fit, leading to returns and frustration. Styling and brand variety influence purchase decisions, with users noting good, trendy options. Price sensitivity is high—price hikes, lack of real discounts, and high service fees deter buyers. Reviews and social proof shape trust, while specific occasions (weddings, birthdays) create urgency and drive selection.",
       "samples": [
         {
-          "review_id": "0b17f2015ea0984b6137",
-          "source": "app_store",
-          "sentiment": "positive",
-          "text": "the trouser fitting is absolutely stunning."
+          "review_id": "5fff2403388bc3a337b0",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "and i thought it was only me! off lately i received 4 products with the incorrect size mentioned. when i would go back to exchange for the size that i originally ordered it would show size not in stock and then i am always only left with 1 option to refund the products and get the platform fee deducted for no reason!"
         },
         {
-          "review_id": "9bc792a0fdcf398ef7a7",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+          "review_id": "4058d79cccbf425e9c59",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i generally buy jeans and tops from lesser - known online sites ( discovered via reddit ) or offline stores. i actually prefer shopping in person because i make a day out of it... inviting friends, dressing up, and trying on many things at once. now that i ’ m preparing for a wedding, i ’ m looking for kurta and pajama options. i ’ m finding myntra incredibly boring and not at all cost - friendly. for instance, while amazon might charge 5 rupees for a service fee, myntra charges 20 – 50!! even when you decide to go for slightly more expensive options ( 2k + ), the fabric often turns out to be completely polyester. i know people prefer myntra for the variety and ease of returns, but it isn ' t true variety.... everyone ends up wearing the same thing. plus, the quality is poor. items fade within a year if you use it often. it really contributes to useless overconsumption and fast fashion. it ’ s barely even ' fashion ' at this point, as unique styles are overpriced on myntra, whereas other sites offer much better value for the money!!"
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "When do users use the wishlist as genuine purchase intent versus simply as a bookmarking mechanism?",
-      "answer": "The dataset contains no explicit references to wishlist usage, so we cannot determine when users treat it as purchase intent versus bookmarking. The available reviews focus on product quality, app experience, and discounts. Without wishlist mentions, we cannot infer intent patterns. This limitation prevents any analysis of intent.",
+      "answer": "Users add items to the wishlist when they plan to buy during a sale or after a price drop, treating it as a purchase‑intent tool. However, many use it merely to bookmark and monitor price changes or stock status, often never completing a purchase. The frustration of price hikes or unavailability after bookmarking highlights the bookmarking use.",
       "samples": [
         {
-          "review_id": "135e6980d742c0b0f78c",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent shopping app! the ui is smooth, products are genuine, and there are plenty of fashion choices for every budget. delivery is fast, returns are hassle - free, and customer support is helpful. highly recommended for online shopping!"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "3aeb9a71cd3d8dd08dc4",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "i ' ve had a great shopping experience with myntra. the app is easy to use, offers a wide variety of fashion brands, and the product quality is generally excellent. delivery is usually on time, and returns and refunds are smooth and hassle - free. i also like the frequent discounts and deals, which make shopping more affordable. overall, it ' s one of the best online shopping apps for fashion. highly recommended!"
+          "review_id": "e3be87acaf850a0b6301",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "has anyone noticed that sales in myntra are just posters and nothing else. none of the items in my wishlist and cart got their price reduced, there were some coupons applicable few days ago which have also disappeared now. on top of that shamelessly taking unnecessary fees on everything. i have stopped purchasing from this shitty app just that some brands are exclusively available on it sadly."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "How do these behaviors differ across user segments?",
-      "answer": "No reviews discuss user segmentation or differing wishlist behaviors. The comments are uniformly positive and lack demographic or behavioral distinctions. Therefore we cannot describe how wishlist usage varies across segments. The dataset does not provide segment identifiers or context to compare behaviors. Thus, any segment-based insights are unavailable.",
+      "answer": "Price‑sensitive shoppers focus on platform fees and return costs, often abandoning purchases when extra charges appear. Quality‑conscious users prioritize fabric and fit, voicing frustration when items fall short of advertised standards. Convenience‑driven buyers value fast, reliable delivery; delays or pickup failures push them toward in‑store shopping. These distinct priorities shape each segment’s buying decisions.",
       "samples": [
         {
-          "review_id": "9bc792a0fdcf398ef7a7",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "excellent app. have a great offers. i literally have placed so many orders because of the discount"
+          "review_id": "80b66cf2254d96c5fc9c",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ordered 3 items in one order and two of them were torn and they sent a completely different item for the 3rd one. i initiated an exchange but they said, we only do returns for damaged or wrong products. in the refund, i will not be given back the platform fees. so now they want me to reorder the original products and again pay the platform fees ( just 20₹ but it is a fundamental flaw in their system ). if i order 5 times and get wrong products all 5 times, i ' ll return them all and will be left with no clothes and a cost of 100₹. on top of that myntra tells me my return rate is too high and that they ' ll levy a 200₹ convenience fees on every future order. this platform has gone down the drain. used to order a lot between [ phone ] and would hardly have any complaints. but it ' s no longer a trustworthy platform to shop from. gotta go back to the shops and malls to buy clothes. edit : another scam i forgot to mention was that one of the 3 products i had ordered were track pants where the product description page mentioned 100 % cotton but when i received the pants, the product tag mentioned 70 % cotton, 30 % polyester. one of the 3 products i had ordered were track pants where the product description page mentioned 100 % cotton but when i received the pants, the product tag mentioned 70 % cotton, 30 % polyester. wth? something really shady is going on at myntra."
         },
         {
-          "review_id": "801c23d4e570e20e9815",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "perfect shopping app"
+          "review_id": "1b404a3defb1edd18108",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "girl same!!! i was gonna write that in the comment too earlier. i ' m really thinking it ' s time to go back to the stores. we can get 5 - 10 % discounts at stores too, plus we can try things so color match, size and fit match problem doesn ' t happen. online shopping was a convenience but these greedy businesses like myntra, tira and nykaa have completely taken all joy out of it and made it extremely stressful. hours of scrolling to find a good product and then being harassed with extra charges, insulting discounts, poor customer support, not taking returns, sending poor quality products nearing expiry dates, and so on. its just not worth it anymore. and this is coming from someone who hates going to the stores and interacting with store sales people. i despise the experience. so imagine how much bad they have made it online that i am considering going back to physical stores. it ' s horrible. plus the carbon footprint because of packaging and plastic is also too much. usually i don ' t even take bags from a store and just carry stuff in my vehicle storage space. but with myntra there is so much plastic waste. unless it ' s a foreign brand that we can ' t even take bags from a store and just carry stuff in my vehicle storage space. but with myntra there is so much plastic waste. unless it ' s a foreign brand that we can ' t get in stores i think it ' s not worth the hassle of online shopping from these greedy apps who don ' t value customers at all and only care about money and targets. sure every business care about money, but at least provide the service properly man. these people have become so arrogant as if we are totally dependent on them for our shopping needs so they can treat us however they like without consequences. they have become way too cocky."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     },
     {
       "question": "What unmet needs emerge consistently across user conversations?",
-      "answer": "The reviews do not mention unmet needs or pain points related to wishlist or shopping. All comments praise product quality, app usability, and discounts. Consequently, we cannot identify consistent unmet needs from this dataset. This lack of negative or constructive feedback limits our ability to surface user pain points.",
+      "answer": "Across conversations, users consistently flag unmet needs for price and stock stability, transparent and fair return policies, and reliable delivery and support. They report sudden price hikes or out‑of‑stock alerts after adding items to wishlists, platform fees deducted from refunds, and delayed or denied returns. These gaps erode trust and push shoppers toward other channels.",
       "samples": [
         {
-          "review_id": "7c09b4974f58e93d34b2",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "good fabric"
+          "review_id": "bb74fca66396428d9d53",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ’ ve noticed something really frustrating with myntra. every time i add a product to my wishlist or cart, planning to buy it after a few days or during a sale, the price suddenly increases, or the product becomes unavailable in my area, or just goes out of stock for a long time. it feels way too coincidental. sometimes i get impatient and end up buying the same product from another platform at a higher price. but then, the very next day, when i check myntra again, it ’ s suddenly back in stock and even available at a lower, discounted price. i genuinely don ’ t understand how or why this keeps happening, but it ’ s extremely annoying. i honestly hate this experience with myntra, i absolutely hate myntra!"
         },
         {
-          "review_id": "7c4404a0055aa7ff102d",
-          "source": "play_store",
-          "sentiment": "positive",
-          "text": "mind blowing purchase awesome"
+          "review_id": "80b66cf2254d96c5fc9c",
+          "source": "reddit",
+          "sentiment": "negative",
+          "text": "i ordered 3 items in one order and two of them were torn and they sent a completely different item for the 3rd one. i initiated an exchange but they said, we only do returns for damaged or wrong products. in the refund, i will not be given back the platform fees. so now they want me to reorder the original products and again pay the platform fees ( just 20₹ but it is a fundamental flaw in their system ). if i order 5 times and get wrong products all 5 times, i ' ll return them all and will be left with no clothes and a cost of 100₹. on top of that myntra tells me my return rate is too high and that they ' ll levy a 200₹ convenience fees on every future order. this platform has gone down the drain. used to order a lot between [ phone ] and would hardly have any complaints. but it ' s no longer a trustworthy platform to shop from. gotta go back to the shops and malls to buy clothes. edit : another scam i forgot to mention was that one of the 3 products i had ordered were track pants where the product description page mentioned 100 % cotton but when i received the pants, the product tag mentioned 70 % cotton, 30 % polyester. one of the 3 products i had ordered were track pants where the product description page mentioned 100 % cotton but when i received the pants, the product tag mentioned 70 % cotton, 30 % polyester. wth? something really shady is going on at myntra."
         }
-      ],
-      "dominant_sentiment": "positive"
+      ]
     }
   ],
   "methodology_note": "Review shares are evidence signals, not measured conversion rates."

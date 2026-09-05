@@ -13,3 +13,4 @@ src/review_vector_pipeline.egg-info/entry_points.txt
 src/review_vector_pipeline.egg-info/requires.txt
 src/review_vector_pipeline.egg-info/top_level.txt
 tests/test_ingest.py
+tests/test_retrieval.py
